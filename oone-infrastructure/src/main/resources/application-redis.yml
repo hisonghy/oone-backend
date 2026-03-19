@@ -1,0 +1,22 @@
+spring:
+  config:
+    activate:
+      on-profile: "redis"
+
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      timeout: 2s
+      lettuce:
+        shutdown-timeout: 2s
+
+redisson:
+  single-server-config:
+    timeout-millis: 3000
+    connection:
+      minimum-idle-size: 5
+      pool-size: 20
+      timeout-millis: 10000
+    retry:
+      attempts: 3

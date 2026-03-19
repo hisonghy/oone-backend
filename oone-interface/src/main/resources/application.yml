@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: "oone-backend"
+  messages:
+    encoding: UTF-8
+
+  profiles:
+    group:
+      local: [ "datasource", "redis", "security" ]
+
+  config:
+    import:
+      - optional:classpath:/application-datasource.yml
+      - optional:classpath:/application-redis.yml
+      - optional:classpath:/application-security.yml
