@@ -1,0 +1,16 @@
+oauth:
+  kakao:
+    client-id: ${KAKAO_CLIENT_ID:}
+    client-secret: ${KAKAO_CLIENT_SECRET:}
+    redirect-uris:
+      local: "http://localhost:3000/auth/kakao/callback"
+      dev: "https://dev-pplan.vercel.app/auth/kakao/callback"
+    token-uri-base: "https://kauth.kakao.com"
+    token-uri-path: "/oauth/token"
+    user-info-uri-base: "https://kapi.kakao.com"
+    user-info-uri-path: "/v2/user/me"
+
+token:
+  jwt:
+    secret: ${JWT_SECRET:}
+    access-expiration-time-in-seconds: ${JWT_ACCESS_EXPIRATION_TIME:7200}

@@ -1,0 +1,32 @@
+spring:
+  config:
+    activate:
+      on-profile: "datasource"
+
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://${DB_HOST:localhost}:${DB_PORT:3308}/${DB_NAME:oone_local_db}?useSSL=false&allowPublicKeyRetrieval=true
+    username: ${MARIADB_USERNAME:root}
+    password: ${MARIADB_PASSWORD:password}
+
+  sql:
+    init:
+      mode: never
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    open-in-view: false
+    properties:
+      hibernate:
+        default_batch_fetch_size: ${JPA_BATCH_FETCH_SIZE:100}
+        format_sql: true
+    database-platform: org.hibernate.dialect.MariaDB106Dialect
+
+  flyway:
+    enabled: true # Flyway 켜기
+    locations:
+      - classpath:db/migration # 도메인 마이그레이션 SQL 파일 위치
+    validate-on-migrate: true # 마이그레이션 전체 검증
+    fail-on-missing-locations: true # 경로 누락 시 실패
