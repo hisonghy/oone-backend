@@ -1,4 +1,4 @@
-package com.oone.interfaces;
+package com.oone.bootstrap;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
